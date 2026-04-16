@@ -1,0 +1,82 @@
+[
+  {
+    "role": "user",
+    "content": "niha"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"error\": \"parse_failed\"}"
+  },
+  {
+    "role": "user",
+    "content": "你好"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"error\": \"parse_failed\"}"
+  },
+  {
+    "role": "user",
+    "content": "你好"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"error\": \"parse_failed\"}"
+  },
+  {
+    "role": "user",
+    "content": "都卡卡护颈脖套编号1023售价56库存55个"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"id\": 1023, \"name\": \"都卡卡护颈脖套\", \"price\": 56.0, \"stock\": 55}"
+  },
+  {
+    "role": "user",
+    "content": "你好"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"error\": \"parse_failed\"}"
+  },
+  {
+    "role": "user",
+    "content": "瑞瑞牌卫生纸价格-1，库存20卷，编号500"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"error\": \"parse_failed\"}"
+  },
+  {
+    "role": "user",
+    "content": "瑞瑞牌卫生纸价格5，库存20卷，编号500"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"id\": 500, \"name\": \"瑞瑞牌卫生纸\", \"price\": 5.0, \"stock\": 20}"
+  },
+  {
+    "role": "user",
+    "content": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa牌自行车，编号100售价2000库存100"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"error\": \"parse_failed\"}"
+  },
+  {
+    "role": "user",
+    "content": "aaaaaaaaa牌自行车，编号100售价2000库存100"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"id\": 100, \"name\": \"aaaaaaaaa牌自行车\", \"price\": 2000.0, \"stock\": 100}"
+  },
+  {
+    "role": "user",
+    "content": "我是陈景瑞，我喜欢王一然"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"error\": \"parse_failed\"}"
+  }
+]
