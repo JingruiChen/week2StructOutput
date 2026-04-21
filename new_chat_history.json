@@ -1,0 +1,74 @@
+[
+  {
+    "role": "user",
+    "content": "代号白墨，真名陈墨白，所属欧泊阵营，战术定位决斗，最大血量150，当前血量120，被动技能是影随，战术技能是断影斩，终极技能是虚空裂斩"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"code_name\": \"白墨\", \"real_name\": \"陈墨白\", \"faction\": \"欧泊\", \"role\": \"决斗\", \"max_hp\": 150, \"current_hp\": 120, \"passive\": \"影随\", \"tactical\": \"断影斩\", \"ultimate\": \"虚空裂斩\"}"
+  },
+  {
+    "role": "user",
+    "content": "代号白 墨，真名陈墨白，欧泊阵营，决斗定位，最大血量150，当前血量120，被动影随，战术断影斩，终极虚空裂斩"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"error\": \"parse_failed\"}"
+  },
+  {
+    "role": "user",
+    "content": "代号白墨，真名陈墨白，欧泊阵营，决斗定位，最大血量250，当前血量100，被动影随，战术断影斩，终极虚空裂斩"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"code_name\": \"白墨\", \"real_name\": \"陈墨白\", \"faction\": \"欧泊\", \"role\": \"决斗\", \"max_hp\": 250, \"current_hp\": 100, \"passive\": \"影随\", \"tactical\": \"断影斩\", \"ultimate\": \"虚空裂斩\"}"
+  },
+  {
+    "role": "user",
+    "content": "代号米雪儿，真名雪儿·克莱尔，剪刀手阵营，支援定位，最大HP200，当前HP200，被动：治愈光环，战术：治愈之光，终极：圣光复苏"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"code_name\": \"米雪儿\", \"real_name\": \"雪儿·克莱尔\", \"faction\": \"剪刀手\", \"role\": \"支援\", \"max_hp\": 200, \"current_hp\": 200, \"passive\": \"治愈光环\", \"tactical\": \"治愈之光\", \"ultimate\": \"圣光复苏\"}"
+  },
+  {
+    "role": "user",
+    "content": "天气真好，我要继续飞快的跑"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"error\": \"parse_failed\"}"
+  },
+  {
+    "role": "user",
+    "content": "代号赤焰，真名顾烈，欧泊阵营，先锋定位。最大血量160，当前血量160。被动技能叫「燃魂」，战术技能叫「冲锋烈焰」，终极技能叫「赤焰燎原」。"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"code_name\": \"赤焰\", \"real_name\": \"顾烈\", \"faction\": \"欧泊\", \"role\": \"先锋\", \"max_hp\": 160, \"current_hp\": 160, \"passive\": \"燃魂\", \"tactical\": \"冲锋烈焰\", \"ultimate\": \"赤焰燎原\"}"
+  },
+  {
+    "role": "user",
+    "content": "代号钢铁侠，真名托尼，防卫队，决斗定位。最大血量100，当前血量150。被动「能量护甲」，战术「导弹齐射」，终极「钢铁洪流」。"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"code_name\": \"钢铁侠\", \"real_name\": \"托尼\", \"faction\": \"防卫队\", \"role\": \"决斗\", \"max_hp\": 100, \"current_hp\": 150, \"passive\": \"能量护甲\", \"tactical\": \"导弹齐射\", \"ultimate\": \"钢铁洪流\"}"
+  },
+  {
+    "role": "user",
+    "content": "代号冰刃，真名叶寒，剪刀手，控场。血量上限140，当前95血。"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"error\": \"parse_failed\"}"
+  },
+  {
+    "role": "user",
+    "content": "被动是「寒冰护盾」，战术是「冰封领域」，终极是「极寒冰封」"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"code_name\": \"冰刃\", \"real_name\": \"叶寒\", \"faction\": \"剪刀手\", \"role\": \"控场\", \"max_hp\": 140, \"current_hp\": 95, \"passive\": \"寒冰护盾\", \"tactical\": \"冰封领域\", \"ultimate\": \"极寒冰封\"}"
+  }
+]

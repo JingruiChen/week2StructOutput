@@ -1,0 +1,79 @@
+[
+  {
+    "code_name": "白墨",
+    "real_name": "陈墨白",
+    "faction": "欧泊",
+    "role": "决斗",
+    "max_hp": 150,
+    "current_hp": 120,
+    "passive": "影随",
+    "tactical": "断影斩",
+    "ultimate": "虚空裂斩"
+  },
+  {
+    "code_name": "米雪儿",
+    "real_name": "雪儿·克莱尔",
+    "faction": "剪刀手",
+    "role": "支援",
+    "max_hp": 200,
+    "current_hp": 200,
+    "passive": "治愈光环",
+    "tactical": "治愈之光",
+    "ultimate": "圣光复苏"
+  },
+  {
+    "code_name": "白墨",
+    "real_name": "陈若白",
+    "faction": "欧泊",
+    "role": "决斗",
+    "max_hp": 180,
+    "current_hp": 150,
+    "passive": "墨痕",
+    "tactical": "破锋斩",
+    "ultimate": "黑域斩灭"
+  },
+  {
+    "code_name": "米雪儿",
+    "real_name": "Marie Snow",
+    "faction": "剪刀手",
+    "role": "支援",
+    "max_hp": 200,
+    "current_hp": 200,
+    "passive": "急救本能",
+    "tactical": "治愈光环",
+    "ultimate": "圣光降临"
+  },
+  {
+    "code_name": "影鸦",
+    "real_name": "未知",
+    "faction": "防卫队",
+    "role": "控场",
+    "max_hp": 120,
+    "current_hp": 45,
+    "passive": "暗影潜行",
+    "tactical": "乌鸦诅咒",
+    "ultimate": "黑羽风暴"
+  },
+  {
+    "code_name": "赤焰",
+    "real_name": "顾烈",
+    "faction": "欧泊",
+    "role": "先锋",
+    "max_hp": 160,
+    "current_hp": 160,
+    "passive": "燃魂",
+    "tactical": "冲锋烈焰",
+    "ultimate": "赤焰燎原"
+  },
+  {
+    "code_name": "冰刃",
+    "real_name": "叶寒",
+    "faction": "剪刀手",
+    "role": "控场",
+    "max_hp": 140,
+    "current_hp": 95,
+    "passive": "寒冰护盾",
+    "tactical": "冰封领域",
+    "ultimate": "极寒冰封"
+  }
+]
