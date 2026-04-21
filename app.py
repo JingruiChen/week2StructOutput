@@ -47,6 +47,13 @@ with col_logout:
 if "history" not in st.session_state:
     st.session_state.history = load_history()
 
+# ── 调试面板（确认 Secrets 是否加载成功）───────────────────────
+with st.expander("🔧 调试信息（确认 API Key 状态）", expanded=False):
+    api_key = st.secrets.get("ANTHROPIC_API_KEY", "")
+    base_url = st.secrets.get("ANTHROPIC_BASE_URL", "")
+    st.write("ANTHROPIC_API_KEY:", f"{'✅ 已加载（前8位：' + api_key[:8] + '...）' if api_key else '❌ 未找到'}")
+    st.write("ANTHROPIC_BASE_URL:", base_url if base_url else "❌ 未找到（将使用默认值）")
+
 tab1, tab2, tab3 = st.tabs(["单条生成", "批量导入", "查看用例"])
 
 # ── Tab 1: 单条生成 ──────────────────────────────────────────
@@ -73,7 +80,11 @@ with tab1:
             st.warning("请输入角色描述")
         else:
             with st.spinner("正在生成..."):
-                result = generate_testcase(description, st.session_state.history)
+                try:
+                    result = generate_testcase(description, st.session_state.history)
+                except Exception as e:
+                    st.error(f"调用模型失败：{e}")
+                    result = None
 
             if result is None:
                 st.error("解析失败：输入信息不完整或无效，请补充角色描述后重试。")
