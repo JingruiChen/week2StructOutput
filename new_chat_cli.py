@@ -1,14 +1,29 @@
 import json
 import os
-import anthropic
+import requests
 from pydantic import ValidationError
 from new_schemas import Character
 
 
-client = anthropic.Anthropic(
-    api_key=os.environ.get("ANTHROPIC_API_KEY", "or_4170110cb92fd356eca9b2fe0d4b0912e9cbea4e294324b9a612c523c569a6e7"),
-    base_url=os.environ.get("ANTHROPIC_BASE_URL", "https://b.onerouter.com/api"),
-)
+API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+BASE_URL = os.environ.get("ANTHROPIC_BASE_URL", "https://b.onerouter.com/api").rstrip("/")
+
+
+def call_model(messages: list, system_prompt: str):
+    payload = {
+        "model": "claude-opus-4-6",
+        "max_tokens": 512,
+        "system": system_prompt,
+        "messages": messages,
+    }
+    headers = {
+        "Authorization": f"Bearer {API_KEY}",
+        "Content-Type": "application/json",
+    }
+    resp = requests.post(f"{BASE_URL}/v1/messages", headers=headers, json=payload, timeout=60)
+    resp.raise_for_status()
+    return resp.json()
+
 
 HISTORY_FILE = "new_chat_history.json"
 
@@ -81,13 +96,12 @@ def generate_testcase(description: str, history: list, max_retries: int = 3) -> 
 
     for attempt in range(1, max_retries + 1):
         try:
-            response = client.messages.create(
-                model="claude-opus-4-6",
-                max_tokens=512,
-                system=system_prompt,
-                messages=messages,
-            )
-            content = response.content[0].text
+            response = call_model(messages=messages, system_prompt=system_prompt)
+            content_blocks = response.get("content", [])
+            text_parts = [b.get("text", "") for b in content_blocks if b.get("type") == "text"]
+            content = "\n".join([t for t in text_parts if t]).strip()
+            if not content:
+                raise ValueError("empty_response")
             json_str = extract_json(content)
             parsed = json.loads(json_str)
 
