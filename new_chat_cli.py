@@ -31,7 +31,8 @@ def call_model(messages: list, system_prompt: str):
         "messages": messages,
     }
     headers = {
-        "Authorization": f"Bearer {api_key}",
+        "x-api-key": api_key,
+        "anthropic-version": "2023-06-01",
         "Content-Type": "application/json",
     }
     resp = requests.post(f"{base_url}/v1/messages", headers=headers, json=payload, timeout=60)
