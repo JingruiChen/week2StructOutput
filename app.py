@@ -53,6 +53,20 @@ with st.expander("🔧 调试信息（确认 API Key 状态）", expanded=False)
     base_url = st.secrets.get("ANTHROPIC_BASE_URL", "")
     st.write("ANTHROPIC_API_KEY:", f"{'✅ 已加载（前8位：' + api_key[:8] + '...）' if api_key else '❌ 未找到'}")
     st.write("ANTHROPIC_BASE_URL:", base_url if base_url else "❌ 未找到（将使用默认值）")
+    # 实时测试连通性
+    if st.button("测试 API 连通性"):
+        import requests as _req
+        _url = (base_url or "https://b.onerouter.com/api").rstrip("/") + "/v1/messages"
+        st.write("请求地址:", _url)
+        try:
+            r = _req.post(_url,
+                headers={"x-api-key": api_key, "anthropic-version": "2023-06-01", "Content-Type": "application/json"},
+                json={"model": "claude-opus-4-6", "max_tokens": 10, "messages": [{"role": "user", "content": "hi"}]},
+                timeout=15)
+            st.write("HTTP 状态码:", r.status_code)
+            st.write("响应:", r.text[:300])
+        except Exception as e:
+            st.error(f"连接失败: {e}")
 
 tab1, tab2, tab3 = st.tabs(["单条生成", "批量导入", "查看用例"])
 
