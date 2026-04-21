@@ -5,11 +5,25 @@ from pydantic import ValidationError
 from new_schemas import Character
 
 
-API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-BASE_URL = os.environ.get("ANTHROPIC_BASE_URL", "https://b.onerouter.com/api").rstrip("/")
+def _get_api_key() -> str:
+    try:
+        import streamlit as st
+        return st.secrets.get("ANTHROPIC_API_KEY", "") or os.environ.get("ANTHROPIC_API_KEY", "")
+    except Exception:
+        return os.environ.get("ANTHROPIC_API_KEY", "")
+
+
+def _get_base_url() -> str:
+    try:
+        import streamlit as st
+        return (st.secrets.get("ANTHROPIC_BASE_URL", "") or os.environ.get("ANTHROPIC_BASE_URL", "https://b.onerouter.com/api")).rstrip("/")
+    except Exception:
+        return os.environ.get("ANTHROPIC_BASE_URL", "https://b.onerouter.com/api").rstrip("/")
 
 
 def call_model(messages: list, system_prompt: str):
+    api_key = _get_api_key()
+    base_url = _get_base_url()
     payload = {
         "model": "claude-opus-4-6",
         "max_tokens": 512,
@@ -17,10 +31,10 @@ def call_model(messages: list, system_prompt: str):
         "messages": messages,
     }
     headers = {
-        "Authorization": f"Bearer {API_KEY}",
+        "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
     }
-    resp = requests.post(f"{BASE_URL}/v1/messages", headers=headers, json=payload, timeout=60)
+    resp = requests.post(f"{base_url}/v1/messages", headers=headers, json=payload, timeout=60)
     resp.raise_for_status()
     return resp.json()
 
@@ -110,11 +124,11 @@ def generate_testcase(description: str, history: list, max_retries: int = 3) -> 
 
             return parsed
 
-        except Exception:
+        except Exception as e:
             if attempt < max_retries:
-                print(f"  [解析失败] 第 {attempt} 次，正在重试...")
+                print(f"  [解析失败] 第 {attempt} 次，正在重试... 原因: {e}")
             else:
-                print(f"  [解析失败] 已尝试 {max_retries} 次，解析失败，返回主页面。")
+                print(f"  [解析失败] 已尝试 {max_retries} 次，解析失败，返回主页面。原因: {e}")
                 return None
 
     return None
